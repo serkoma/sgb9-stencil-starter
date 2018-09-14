@@ -6,10 +6,11 @@
 
 import '@stencil/core';
 
+import '@stencil/router';
+import '@stencil/state-tunnel';
 import '@ionic/core';
 import 'ionicons';
-import '@stencil/state-tunnel';
-import '@stencil/router';
+import 'sgb9-components';
 import {
   MatchResults,
   RouterHistory,

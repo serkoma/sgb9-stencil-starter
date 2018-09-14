@@ -1,17 +1,17 @@
 import { Component, Prop, State } from '@stencil/core';
-import { MatchResults } from '@stencil/router';
-import { sayHello } from '../../helpers/utils';
+import { RouterHistory } from '@stencil/router';
+import { sayHello } from '../../../helpers/utils';
 
-const MODULNAME: string = 'ElanProfile: '; 
+const MODULNAME: string = 'ElanProfile1: '; 
 
 @Component({
-  tag: 'elan-profile',
-  styleUrl: 'elan-profile.css'
+  tag: 'elan-profile1',
+  styleUrl: 'elan-profile1.css'
 })
-export class ElanProfile {
+export class ElanProfile1 {
  
   @State() state = false;
-  @Prop() match: MatchResults;
+  @Prop() history: RouterHistory;
 
   render() {
     return [
@@ -23,7 +23,7 @@ export class ElanProfile {
 
       <div class="main">
         <p>
-          {sayHello()}! {this.match.params.prof} is passed! My name was passed in through a route
+          {sayHello()}! {this.history.location.state.name} is passed! My name was passed in through a route
           param!
         </p>
 
@@ -38,7 +38,7 @@ export class ElanProfile {
 
   componentDidLoad() {
     console.log(MODULNAME + "componentDidLoad");
-    console.log("this.prof = ", this.match);
+    console.log("this.prof = ", this.history.location.state);
   }
 
 }

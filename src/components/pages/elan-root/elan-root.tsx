@@ -1,7 +1,7 @@
 import '@stencil/router';
 import { Component, Prop, Listen, State } from '@stencil/core';
 //import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
-import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
+import SiteProviderConsumer, { SiteState } from '../../../global/site-provider-consumer';
 
 const MODULNAME: string = 'ElanRoot: '; 
 
@@ -65,7 +65,7 @@ export class ElanRoot {
         </div>
         <footer>
           <div class="container">
-            <div class="footer__open-source">Copyright 2000-2019 IW Köln. (from root)</div>
+            <div class="footer__open-source">Copyright 2000-2019 XXX. (from root)</div>
           </div>
         </footer>
       </div>
