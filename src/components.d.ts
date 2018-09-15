@@ -8,8 +8,6 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
-import '@ionic/core';
-import 'ionicons';
 import 'sgb9-components';
 import {
   MatchResults,
@@ -19,10 +17,20 @@ import {
 
 export namespace Components {
 
+  interface SiteHeader {}
+  interface SiteHeaderAttributes extends StencilHTMLAttributes {}
+
   interface ElanHome {
     'history': RouterHistory;
   }
   interface ElanHomeAttributes extends StencilHTMLAttributes {
+    'history'?: RouterHistory;
+  }
+
+  interface ElanPage {
+    'history': RouterHistory;
+  }
+  interface ElanPageAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
   }
 
@@ -46,24 +54,40 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'SiteHeader': Components.SiteHeader;
     'ElanHome': Components.ElanHome;
+    'ElanPage': Components.ElanPage;
     'ElanProfile': Components.ElanProfile;
     'ElanProfile1': Components.ElanProfile1;
     'ElanRoot': Components.ElanRoot;
   }
 
   interface StencilIntrinsicElements {
+    'site-header': Components.SiteHeaderAttributes;
     'elan-home': Components.ElanHomeAttributes;
+    'elan-page': Components.ElanPageAttributes;
     'elan-profile': Components.ElanProfileAttributes;
     'elan-profile1': Components.ElanProfile1Attributes;
     'elan-root': Components.ElanRootAttributes;
   }
 
 
+  interface HTMLSiteHeaderElement extends Components.SiteHeader, HTMLStencilElement {}
+  var HTMLSiteHeaderElement: {
+    prototype: HTMLSiteHeaderElement;
+    new (): HTMLSiteHeaderElement;
+  };
+
   interface HTMLElanHomeElement extends Components.ElanHome, HTMLStencilElement {}
   var HTMLElanHomeElement: {
     prototype: HTMLElanHomeElement;
     new (): HTMLElanHomeElement;
+  };
+
+  interface HTMLElanPageElement extends Components.ElanPage, HTMLStencilElement {}
+  var HTMLElanPageElement: {
+    prototype: HTMLElanPageElement;
+    new (): HTMLElanPageElement;
   };
 
   interface HTMLElanProfileElement extends Components.ElanProfile, HTMLStencilElement {}
@@ -85,14 +109,18 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'site-header': HTMLSiteHeaderElement
     'elan-home': HTMLElanHomeElement
+    'elan-page': HTMLElanPageElement
     'elan-profile': HTMLElanProfileElement
     'elan-profile1': HTMLElanProfile1Element
     'elan-root': HTMLElanRootElement
   }
 
   interface ElementTagNameMap {
+    'site-header': HTMLSiteHeaderElement;
     'elan-home': HTMLElanHomeElement;
+    'elan-page': HTMLElanPageElement;
     'elan-profile': HTMLElanProfileElement;
     'elan-profile1': HTMLElanProfile1Element;
     'elan-root': HTMLElanRootElement;

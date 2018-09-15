@@ -24,13 +24,8 @@ export class ElanProfile1 {
       <div class="main">
         <p>
           {sayHello()}! {this.history.location.state.name} is passed! My name was passed in through a route
-          param!
+          param! ({this.history.location.state.value})
         </p>
-
-        <ion-item>
-          <ion-label>Setting ({this.state.toString()})</ion-label>
-          <ion-toggle checked={this.state} onIonChange={(ev) => this.state = ev.detail.checked} />
-        </ion-item>
 
       </div>
     ];

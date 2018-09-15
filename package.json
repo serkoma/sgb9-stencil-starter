@@ -1,8 +1,8 @@
 {
-  "name": "@ionic/pwa-toolkit",
+  "name": "ElanSPA",
   "private": true,
   "version": "0.0.1",
-  "description": "Ionic PWA Toolkit",
+  "description": "Elan 2019 PWA",
   "files": [
     "dist/"
   ],
@@ -16,6 +16,7 @@
   "dependencies": {
     "@stencil/core": "^0.12.4",
     "@stencil/router": "^0.2.6",
+    "@stencil/sass": "^0.1.0",
     "sgb9-components": "0.0.1"
   },
   "devDependencies": {
@@ -24,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/ionic-pwa-toolkit.git"
+    "url": "git+https://github.com/serkoma/sgb9-stencil-starter.git"
   },
-  "author": "Ionic Team",
+  "author": "Serkom Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/serkoma/sgb9"
   },
-  "homepage": "https://github.com/ionic-team/ionic-pwa-toolkit",
+  "homepage": "https://github.com/serkoma/sgb9-stencil-starter",
   "jest": {
     "transform": {
       "^.+\\.(js|ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

@@ -1,5 +1,5 @@
 import '@stencil/router';
-import { Component, Prop, Listen, State } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 //import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 import SiteProviderConsumer, { SiteState } from '../../../global/site-provider-consumer';
 
@@ -7,11 +7,11 @@ const MODULNAME: string = 'ElanRoot: ';
 
 @Component({
   tag: 'elan-root',
-  styleUrl: 'elan-root.css'
+  styleUrl: 'elan-root.scss'
 })
 export class ElanRoot {
   
-  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
+//  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
 
   /**
    * Handle service worker updates correctly.
@@ -22,6 +22,7 @@ export class ElanRoot {
    * so that the new service worker can take over
    * and serve the fresh content
    */
+/*
   @Listen('window:swUpdate')
   async onSWUpdate() {
     const toast = await this.toastCtrl.create({
@@ -33,7 +34,7 @@ export class ElanRoot {
     await toast.onWillDismiss();
     window.location.reload();
   }
-
+*/
   @State() isLeftSidebarIn: boolean;
   toggleLeftSidebar = () => {
   }

@@ -1,7 +1,7 @@
 export const RADIOTEXTE = [
-  "Radiobutton 1",
-  "Radiobutton 2",
-  "Radiobutton 3",
+  "running lokal (storageDB)",
+  "private remote (http://xxx.de:yyyy)",
+  "public remote (https://www.serkom.de)",
   "Radiobutton 4",
   "Radiobutton 5"
   ];

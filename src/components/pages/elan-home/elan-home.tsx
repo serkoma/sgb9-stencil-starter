@@ -33,12 +33,6 @@ export class ElanHome {
 
     render() {
     return [
-      <site-header>
-        <div class="container">
-          Elan 2019
-        </div>
-      </site-header>,
-
       <div class="main">
         <p>
         <div class="radio-group">
@@ -56,10 +50,8 @@ export class ElanHome {
         {this.radioTextG2} is selected in second group!
         </p>
 
-        <stencil-route-link url="/profile/test" activeClass="logo-link">
-          Konfigurieren
-        </stencil-route-link>
-        <button onClick= { ()=> {this.history.push('/profile1', {name: this.radioTextG1, alter: this.radioValueG1 })}}>RouteStateData</button>
+        <button onClick= { ()=> {this.history.push('/profile', {name: this.radioTextG1, value: this.radioValueG1 })}}>Konfigurieren</button>
+        <button onClick= { ()=> {this.history.push('/profile1', {name: this.radioTextG1, value: this.radioValueG1 })}}>RouteStateData</button>
 
       </div>
     ];
