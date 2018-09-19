@@ -1,0 +1,33 @@
+.main {
+  float: left;
+}
+
+.sgb9-left {
+  background-color: lightgrey;
+  float: left;
+  width: 20%;
+}
+
+.sgb9-center-withhelp {
+  background-color: #B7D78F;
+  float: left;
+  width: 60%;
+}
+
+.sgb9-center-withouthelp {
+  background-color: #C07777;
+  float: left;
+  width: 80%;
+}
+
+.sgb9-help {
+  background-color: yellow;
+  float: left;
+  width: 20%;
+}
+.sgb9-nohelp {
+  background-color: yellow;
+  float: left;
+  width: 0%;
+  visibility: hidden;
+}

@@ -1,10 +1,24 @@
-import { Component, Element, Listen, State } from '@stencil/core';
+import { Component, Element, Listen, State, Event } from '@stencil/core';
+import { EventEmitter } from '@stencil/core';
+
+import Tunnel from '../../data/message';
+
+const MODULNAME = "SiteHeader";
+
+
 
 @Component({
   tag: 'site-header',
   styleUrl: 'site-header.scss'
 })
 export class SiteHeader {
+  @State() hilfean: boolean = true;
+  @Event() checkHilfeChange: EventEmitter;
+  checkHilfeChangeHandler() {
+    this.hilfean = ! this.hilfean;
+    console.log(MODULNAME + "checkChange emitted! " + this.hilfean)
+    this.checkHilfeChange.emit({"hilfeState": this.hilfean});
+  }    
 
   @Element() el: Element;
 
@@ -49,10 +63,18 @@ export class SiteHeader {
     return (
       <div class="container">
         <stencil-route-link url="/" class="logo-link">
-          <img class="logo" alt="Stencil" src="/assets/img/stencil-logo-new.svg" />
+          <img class="logo" alt="Sgb9" src="/assets/img/stencil-logo-new.svg" />
         </stencil-route-link>
         <div class="header-menu">
-          <stencil-route-link urlMatch="/docs" url="/docs/introduction" onClick={() => { this.hideNav() }}>
+          <Tunnel.Consumer>
+            {({ message, toggleHelp }) => (
+//          <a rel="noopener" class=" sgb9-hilfean link--external" href="javascript:;" onClick={() => this.checkHilfeChangeHandler() }>
+          <a rel="noopener" class=" sgb9-hilfean link--external" href="javascript:;" onClick={ toggleHelp }>
+            {message}
+          </a>
+            )}
+          </Tunnel.Consumer>
+        <stencil-route-link urlMatch="/docs" url="/docs/introduction" onClick={() => { this.hideNav() }}>
             Docs
           </stencil-route-link>
           <stencil-route-link url="/demos"  exact={true} onClick={() => { this.hideNav() }}>
@@ -64,9 +86,6 @@ export class SiteHeader {
           <stencil-route-link url="/resources"  exact={true} onClick={() => { this.hideNav() }}>
             Resources
           </stencil-route-link>
-          <a rel="noopener" class="link--external" target="_blank" href="https://www.serkom.de">
-            Serkom <app-icon name="targetblank"></app-icon>
-          </a>
 
           <div class="header-close" onClick={() => { this.hideNav() }}>
             <app-icon name="close"></app-icon>

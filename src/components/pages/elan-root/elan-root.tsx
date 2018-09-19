@@ -1,7 +1,22 @@
 import '@stencil/router';
-import { Component, State } from '@stencil/core';
+import { Component, State, Listen } from '@stencil/core';
 //import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
-import SiteProviderConsumer, { SiteState } from '../../../global/site-provider-consumer';
+//import SiteProviderConsumer, { SiteState } from '../../../global/site-provider-consumer';
+
+import Tunnel, { ElanState } from '../../../data/message';
+
+const HILFETEXT = [
+  "Hilfe an ",
+  "Hilfe aus"
+];
+const CLASSDEFS1 = [
+  "sgb9-center-withhelp",
+  "sgb9-center-withouthelp"
+];
+const CLASSDEFS2 = [
+  "sgb9-help",
+  "sgb9-nohelp"
+];
 
 const MODULNAME: string = 'ElanRoot: '; 
 
@@ -11,6 +26,15 @@ const MODULNAME: string = 'ElanRoot: ';
 })
 export class ElanRoot {
   
+  @Listen('checkHilfeChange')
+  checkHilfeChangeHandler(event: CustomEvent) {
+    console.log(MODULNAME + 'Received the custom checkHilfeChange event: ', event);
+    console.log(event.detail);
+    this.isHilfeAn = event.detail.hilfeState;
+  }
+  @State() isHilfeAn: boolean = true;
+
+
 //  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
 
   /**
@@ -39,15 +63,35 @@ export class ElanRoot {
   toggleLeftSidebar = () => {
   }
 
-
+  count: number = 0;
+  @State() message: string = HILFETEXT[this.isHilfeAn == true ? 0 : 1];
+  aktClassDef1: string = CLASSDEFS1[this.isHilfeAn == true ? 0 : 1];
+  aktClassDef2: string = CLASSDEFS2[this.isHilfeAn == true ? 0 : 1];
+  
+  toggleHelp = () => {
+    this.isHilfeAn = !this.isHilfeAn ;
+//    this.count = this.count + 1;
+    this.message = HILFETEXT[this.isHilfeAn == true ? 0 : 1];
+    this.aktClassDef1 = CLASSDEFS1[this.isHilfeAn == true ? 0 : 1];
+    this.aktClassDef2 = CLASSDEFS2[this.isHilfeAn == true ? 0 : 1];
+    console.log(MODULNAME + this.message);
+  }
 
   render() {
-    const siteState: SiteState = {
-      isLeftSidebarIn: this.isLeftSidebarIn,
-      toggleLeftSidebar: this.toggleLeftSidebar
-    };
+    const siteState: ElanState = {
+      helpState: this.isHilfeAn,
+      message: this.message,
+      classDef1: this.aktClassDef1,
+      classDef2: this.aktClassDef2,
+      toggleHelp: this.toggleHelp
+    }
+    console.log(MODULNAME + siteState.helpState);
+    
+//      isLeftSidebarIn: this.isLeftSidebarIn,
+//      isHilfeAn: this.isHilfeAn,
+//      toggleLeftSidebar: this.toggleLeftSidebar
     return (
-      <SiteProviderConsumer.Provider state={siteState}>
+      <Tunnel.Provider state={siteState}>
       <site-header />
       <div class="root">
         <div class="container">
@@ -56,7 +100,7 @@ export class ElanRoot {
               <stencil-route url="/" component="elan-home" exact={true} />
               <stencil-route url="/profile/:prof" component="elan-profile" componentProps={{'name': 'elan-bla'}}/>
               <stencil-route url="/profile1" component="elan-profile1" />
-              <stencil-route url="/start/:strMode" component="elan-start"  componentProps={{'strMode': '0'}}/>
+              <stencil-route url="/sgb9" component="elan-page" />
               <stencil-route url="/demos" component="demos-page" />
               <stencil-route url="/pwa" component="pwas-page" />
               <stencil-route url="/resources" component="resources-page" />
@@ -70,7 +114,7 @@ export class ElanRoot {
           </div>
         </footer>
       </div>
-    </SiteProviderConsumer.Provider>
+    </Tunnel.Provider>
     );
   }
 

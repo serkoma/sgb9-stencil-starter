@@ -6,8 +6,8 @@
 
 import '@stencil/core';
 
-import '@stencil/router';
 import '@stencil/state-tunnel';
+import '@stencil/router';
 import 'sgb9-components';
 import {
   MatchResults,
@@ -18,7 +18,9 @@ import {
 export namespace Components {
 
   interface SiteHeader {}
-  interface SiteHeaderAttributes extends StencilHTMLAttributes {}
+  interface SiteHeaderAttributes extends StencilHTMLAttributes {
+    'onCheckHilfeChange'?: (event: CustomEvent) => void;
+  }
 
   interface ElanHome {
     'history': RouterHistory;
@@ -29,9 +31,13 @@ export namespace Components {
 
   interface ElanPage {
     'history': RouterHistory;
+    'isHilfeAn': boolean;
+    'toggleLeftSidebar': () => void;
   }
   interface ElanPageAttributes extends StencilHTMLAttributes {
     'history'?: RouterHistory;
+    'isHilfeAn'?: boolean;
+    'toggleLeftSidebar'?: () => void;
   }
 
   interface ElanProfile {

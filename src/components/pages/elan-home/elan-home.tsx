@@ -50,7 +50,7 @@ export class ElanHome {
         {this.radioTextG2} is selected in second group!
         </p>
 
-        <button onClick= { ()=> {this.history.push('/profile', {name: this.radioTextG1, value: this.radioValueG1 })}}>Konfigurieren</button>
+        <button onClick= { ()=> {this.history.push('/sgb9', {name: this.radioTextG1, value: this.radioValueG1 })}}>Sgb9 starten</button>
         <button onClick= { ()=> {this.history.push('/profile1', {name: this.radioTextG1, value: this.radioValueG1 })}}>RouteStateData</button>
 
       </div>
