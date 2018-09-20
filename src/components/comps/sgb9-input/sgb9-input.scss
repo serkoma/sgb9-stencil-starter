@@ -1,0 +1,254 @@
+.sgb9-bold {
+  font-weight: bold;
+}
+
+
+
+.sgb-form-field-can-float .sgb-input-server:focus+.sgb-form-field-label-wrapper .sgb-form-field-label,
+.sgb-form-field-can-float.sgb-form-field-should-float .sgb-form-field-label {
+  -webkit-transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform:translateY(-1.28125em) scale(.75);
+  width:133.33333%
+}
+.sgb-form-field-can-float .sgb-form-field-autofill-control:-webkit-autofill+.sgb-form-field-label-wrapper .sgb-form-field-label{
+  -webkit-transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+  transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+  -ms-transform:translateY(-1.28124em) scale(.75);
+  width:133.33334%}
+.sgb-form-field-can-float .sgb-input-server[label]:not(:label-shown)+.sgb-form-field-label-wrapper .sgb-form-field-label{
+  -webkit-transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+  transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+  -ms-transform:translateY(-1.28123em) scale(.75);
+  width:133.33335%
+}
+
+
+
+
+.sgb9-input {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.125;
+}
+
+.sgb9-input-field-wrapper {
+  position: relative;
+  padding-bottom: 1.25em;
+}
+
+.sgb9-input-field-flex {
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.sgb9-input-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 180px;
+  padding: .4375em 0;
+  border-top: .84375em solid transparent;
+}
+
+input .sgb9-input-element {
+  margin-top: -.0625em;
+}
+
+.sgb9-input-element {
+  font: inherit;
+  background: 0 0;
+  color: currentColor;
+  border: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+  caret-color: #673ab7;
+}
+
+.sgb9-input-field-label-wrapper {
+  position: absolute;
+  left: 0;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sgb9-input-field-label-wrapper {
+  top: -.84375em;
+  padding-top: .84375em;
+}
+
+.sgb-form-field-can-float.sgb-form-field-should-float .sgb-form-field-label, .sgb-form-field-empty.sgb-form-field-label {
+  display: block;
+}
+.card label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.card .category, .card label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9A9A9A;
+  margin-bottom: 0px;
+}
+
+.sgb-form-field-label {
+  position: absolute;
+  left: 0;
+  font: inherit;
+  pointer-events: none;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transform: perspective(100px);
+  -ms-transform: none;
+  transform-origin: 0 0;
+  transition: transform .4s cubic-bezier(.25,.8,.25,1),color .4s cubic-bezier(.25,.8,.25,1),width .4s cubic-bezier(.25,.8,.25,1);
+  display: none;
+}
+
+.sgb-form-field-label {
+  color: rgba(0,0,0,.54);
+}
+
+.sgb-form-field-label {
+  top: 1.28125em;
+}
+
+.sgb-form-field-underline {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+}
+.sgb-form-field-underline {
+  background-color: rgba(0,0,0,.42);
+}
+.sgb-form-field-underline {
+  bottom: 1.25em;
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sgb-form-field-underline .sgb-form-field-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform-origin: 50%;
+  transform: scaleX(.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: background-color .3s cubic-bezier(.55,0,.55,.2);
+}
+.sgb-form-field-ripple {
+  background-color: #673ab7;
+}
+
+.sgb-form-field-subscript-wrapper {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sgb-form-field-subscript-wrapper {
+  font-size: 75%;
+  margin-top: .54167em;
+  top: calc(100% - 1.66667em);
+}
+
+.sgb-form-field-hint-wrapper {
+  display: flex;
+}
+
+.sgb-form-field-hint-spacer {
+  flex: 1 0 1em;
+}
+
+.sgb-form-field-can-float.sgb-form-field-should-float .sgb-form-field-label,.sgb-form-field-empty.sgb-form-field-label{
+  display:block
+}
+
+.sgb-focused .sgb-form-field-underline .sgb-form-field-ripple,.sgb-form-field-invalid .sgb-form-field-underline .sgb-form-field-ripple{
+  visibility:visible;
+  opacity:1;
+  transform:scaleX(1);
+  transition:transform .3s cubic-bezier(.25,.8,.25,1),opacity .1s cubic-bezier(.25,.8,.25,1),background-color .3s cubic-bezier(.25,.8,.25,1)
+}
+.sgb-form-field-can-float .sgb-input-server:focus+.sgb-form-field-label-wrapper .sgb-form-field-label,
+.sgb-form-field-can-float .sgb-form-field-should-float .sgb-form-field-label {
+  -webkit-transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform:translateY(-1.28125em) scale(.75);
+  width:133.33333%
+}
+/*
+.sgb-focused{
+  visibility:visible;
+  opacity:1;
+  transform:scaleX(1);
+  transition:transform .3s cubic-bezier(.25,.8,.25,1),opacity .1s cubic-bezier(.25,.8,.25,1),background-color .3s cubic-bezier(.25,.8,.25,1)
+}
+*/
+
+/*
+.sgb-form-field-can-float.sgb-form-field-should-float {
+  -webkit-transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  transform:translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  -ms-transform:translateY(-1.28125em) scale(.75);
+  width:133.33333%
+}
+*/
+
+.mat-input-element::placeholder{
+  transition:color .4s .133s cubic-bezier(.25,.8,.25,1)
+}
+.mat-input-element::-moz-placeholder{
+  transition:color .4s .133s cubic-bezier(.25,.8,.25,1)
+}
+.mat-input-element::-webkit-input-placeholder{
+  transition:color .4s .133s cubic-bezier(.25,.8,.25,1)
+}
+.mat-input-element:-ms-input-placeholder{
+  transition:color .4s .133s cubic-bezier(.25,.8,.25,1)
+}
+.mat-form-field-hide-placeholder .mat-input-element::placeholder{
+  color:transparent!important;
+  transition:none
+}
+.mat-form-field-hide-placeholder .mat-input-element::-moz-placeholder{
+  color:transparent!important;
+  transition:none
+}
+.mat-form-field-hide-placeholder .mat-input-element::-webkit-input-placeholder{
+  color:transparent!important;
+  transition:none
+}
+.mat-form-field-hide-placeholder .mat-input-element:-ms-input-placeholder{
+  color:transparent!important;
+  transition:none
+}
+
+
+
+
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

@@ -1,5 +1,5 @@
 import '@stencil/router';
-import { Component, State, Listen } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 //import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 //import SiteProviderConsumer, { SiteState } from '../../../global/site-provider-consumer';
 
@@ -18,6 +18,22 @@ const CLASSDEFS2 = [
   "sgb9-nohelp"
 ];
 
+/*
+const HELPIDS = [
+  "10011",
+  "10190",
+  "10021",
+  "10181",
+  "10031",
+  "10041",
+  "10051",
+  "10061",
+  "10171",
+  "10071"
+];
+*/
+
+
 const MODULNAME: string = 'ElanRoot: '; 
 
 @Component({
@@ -25,15 +41,17 @@ const MODULNAME: string = 'ElanRoot: ';
   styleUrl: 'elan-root.scss'
 })
 export class ElanRoot {
-  
+
+  /*
   @Listen('checkHilfeChange')
   checkHilfeChangeHandler(event: CustomEvent) {
     console.log(MODULNAME + 'Received the custom checkHilfeChange event: ', event);
     console.log(event.detail);
     this.isHilfeAn = event.detail.hilfeState;
   }
+  */
   @State() isHilfeAn: boolean = true;
-
+  @State() helpId: string = '10011';
 
 //  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
 
@@ -59,9 +77,6 @@ export class ElanRoot {
     window.location.reload();
   }
 */
-  @State() isLeftSidebarIn: boolean;
-  toggleLeftSidebar = () => {
-  }
 
   count: number = 0;
   @State() message: string = HILFETEXT[this.isHilfeAn == true ? 0 : 1];
@@ -76,20 +91,36 @@ export class ElanRoot {
     this.aktClassDef2 = CLASSDEFS2[this.isHilfeAn == true ? 0 : 1];
     console.log(MODULNAME + this.message);
   }
+//  setHelpId = (helpId) => {
+  setHelpId = (helpId) => {
+    console.log(MODULNAME + "Setting helpId: " + helpId);
+//    this.count = this.count+1;
+//    this.count = this.count % 10;
+//    console.log(MODULNAME + "count: " + this.count);
+//    this.helpId = HELPIDS[this.count];
+//    console.log(MODULNAME + "Setted helpId: " + this.helpId);
+    this.helpId = helpId;
+  };
+//  getHelpState = async () => {
+  getHelpState = () => {
+    return this.isHilfeAn;
+  }
+
 
   render() {
     const siteState: ElanState = {
       helpState: this.isHilfeAn,
+      helpId: this.helpId,
       message: this.message,
       classDef1: this.aktClassDef1,
       classDef2: this.aktClassDef2,
-      toggleHelp: this.toggleHelp
+      toggleHelp: this.toggleHelp,
+      setHelpId: this.setHelpId,
+      getHelpState: this.getHelpState,
     }
-    console.log(MODULNAME + siteState.helpState);
-    
-//      isLeftSidebarIn: this.isLeftSidebarIn,
-//      isHilfeAn: this.isHilfeAn,
-//      toggleLeftSidebar: this.toggleLeftSidebar
+    console.log(MODULNAME + "render " + siteState.helpState);
+    console.log(MODULNAME + "render " + siteState.helpId);
+
     return (
       <Tunnel.Provider state={siteState}>
       <site-header />
@@ -120,7 +151,6 @@ export class ElanRoot {
 
   componentDidLoad() {
     console.log(MODULNAME + "componentDidLoad")
-    this.isLeftSidebarIn = false;
   }
 
 

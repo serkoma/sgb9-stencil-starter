@@ -1,29 +1,40 @@
 .main {
   float: left;
+  width: 100%;
 }
+
+.elan-part-tab {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 
 .sgb9-left {
   background-color: lightgrey;
   float: left;
   width: 20%;
+  height: 100%;
 }
 
 .sgb9-center-withhelp {
   background-color: #B7D78F;
   float: left;
   width: 60%;
+  height: 100%;
 }
 
 .sgb9-center-withouthelp {
   background-color: #C07777;
   float: left;
   width: 80%;
+  height: 100%;
 }
 
 .sgb9-help {
   background-color: yellow;
   float: left;
   width: 20%;
+  height: 100%;
 }
 .sgb9-nohelp {
   background-color: yellow;

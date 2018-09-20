@@ -6,9 +6,9 @@
 
 import '@stencil/core';
 
-import '@stencil/state-tunnel';
-import '@stencil/router';
 import 'sgb9-components';
+import '@stencil/router';
+import '@stencil/state-tunnel';
 import {
   MatchResults,
   RouterHistory,
@@ -16,6 +16,52 @@ import {
 
 
 export namespace Components {
+
+  interface Sgb9Input1 {
+    'force': boolean;
+    'getHelpState': () => Promise<boolean>;
+    'helpId': string;
+    'idValue': string;
+    'isHilfeAn': boolean;
+    'label': string;
+    'name': string;
+    'setHelpId': (hilfeId: string) => void;
+  }
+  interface Sgb9Input1Attributes extends StencilHTMLAttributes {
+    'force'?: boolean;
+    'getHelpState'?: () => Promise<boolean>;
+    'helpId'?: string;
+    'idValue'?: string;
+    'isHilfeAn'?: boolean;
+    'label'?: string;
+    'name'?: string;
+    'setHelpId'?: (hilfeId: string) => void;
+  }
+
+  interface Sgb9Input {
+    'force': boolean;
+    'helpId': string;
+    'idValue': string;
+    'isHilfeAn': boolean;
+    'label': string;
+    'name': string;
+  }
+  interface Sgb9InputAttributes extends StencilHTMLAttributes {
+    'force'?: boolean;
+    'helpId'?: string;
+    'idValue'?: string;
+    'isHilfeAn'?: boolean;
+    'label'?: string;
+    'name'?: string;
+    'onSetNewHelp'?: (event: CustomEvent) => void;
+  }
+
+  interface ElanHilfe {
+    'hilfeIdValue': string;
+  }
+  interface ElanHilfeAttributes extends StencilHTMLAttributes {
+    'hilfeIdValue'?: string;
+  }
 
   interface SiteHeader {}
   interface SiteHeaderAttributes extends StencilHTMLAttributes {
@@ -30,14 +76,16 @@ export namespace Components {
   }
 
   interface ElanPage {
+    'getHelpState': () => Promise<boolean>;
     'history': RouterHistory;
     'isHilfeAn': boolean;
-    'toggleLeftSidebar': () => void;
+    'setHelpId': (hilfeId: string) => void;
   }
   interface ElanPageAttributes extends StencilHTMLAttributes {
+    'getHelpState'?: () => Promise<boolean>;
     'history'?: RouterHistory;
     'isHilfeAn'?: boolean;
-    'toggleLeftSidebar'?: () => void;
+    'setHelpId'?: (hilfeId: string) => void;
   }
 
   interface ElanProfile {
@@ -60,6 +108,9 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'Sgb9Input1': Components.Sgb9Input1;
+    'Sgb9Input': Components.Sgb9Input;
+    'ElanHilfe': Components.ElanHilfe;
     'SiteHeader': Components.SiteHeader;
     'ElanHome': Components.ElanHome;
     'ElanPage': Components.ElanPage;
@@ -69,6 +120,9 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
+    'sgb9-input1': Components.Sgb9Input1Attributes;
+    'sgb9-input': Components.Sgb9InputAttributes;
+    'elan-hilfe': Components.ElanHilfeAttributes;
     'site-header': Components.SiteHeaderAttributes;
     'elan-home': Components.ElanHomeAttributes;
     'elan-page': Components.ElanPageAttributes;
@@ -77,6 +131,24 @@ declare global {
     'elan-root': Components.ElanRootAttributes;
   }
 
+
+  interface HTMLSgb9Input1Element extends Components.Sgb9Input1, HTMLStencilElement {}
+  var HTMLSgb9Input1Element: {
+    prototype: HTMLSgb9Input1Element;
+    new (): HTMLSgb9Input1Element;
+  };
+
+  interface HTMLSgb9InputElement extends Components.Sgb9Input, HTMLStencilElement {}
+  var HTMLSgb9InputElement: {
+    prototype: HTMLSgb9InputElement;
+    new (): HTMLSgb9InputElement;
+  };
+
+  interface HTMLElanHilfeElement extends Components.ElanHilfe, HTMLStencilElement {}
+  var HTMLElanHilfeElement: {
+    prototype: HTMLElanHilfeElement;
+    new (): HTMLElanHilfeElement;
+  };
 
   interface HTMLSiteHeaderElement extends Components.SiteHeader, HTMLStencilElement {}
   var HTMLSiteHeaderElement: {
@@ -115,6 +187,9 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'sgb9-input1': HTMLSgb9Input1Element
+    'sgb9-input': HTMLSgb9InputElement
+    'elan-hilfe': HTMLElanHilfeElement
     'site-header': HTMLSiteHeaderElement
     'elan-home': HTMLElanHomeElement
     'elan-page': HTMLElanPageElement
@@ -124,6 +199,9 @@ declare global {
   }
 
   interface ElementTagNameMap {
+    'sgb9-input1': HTMLSgb9Input1Element;
+    'sgb9-input': HTMLSgb9InputElement;
+    'elan-hilfe': HTMLElanHilfeElement;
     'site-header': HTMLSiteHeaderElement;
     'elan-home': HTMLElanHomeElement;
     'elan-page': HTMLElanPageElement;

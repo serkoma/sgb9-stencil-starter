@@ -57,6 +57,19 @@ export class ElanHome {
     ];
   }
 
+/*  
+  async function showEstimatedQuota() {
+    if (navigator.storage && navigator.storage.estimate) {
+      const estimation = await navigator.storage.estimate();
+      console.log(`Quota: ${estimation.quota}`);
+      console.log(`Usage: ${estimation.usage}`);
+    } else {
+      console.error("StorageManager not found");
+    }
+  }
+*/
+
+
   componentDidLoad() {
     console.log(MODULNAME + "componentDidLoad")
   }
